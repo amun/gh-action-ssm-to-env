@@ -5,8 +5,12 @@ inputs:
   ssm-path:
     description: 'SSM path from which to set Job vars'
     required: true
+  prefix:
+    description: 'Filter using prefix'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.ssm-path }}
+    - ${{ inputs.prefix }}
